@@ -1,0 +1,33 @@
+@use "../mixin" as *;
+
+.wrapper {
+  font-size: 1.5rem;
+  min-width: var(--main-width);
+  overflow: clip;
+  position: relative;
+  min-height: 100vh;
+  // padding-bottom: 223px;
+  padding-bottom: 160px;
+}
+
+.page {
+  @include lh(15,22.5);
+  padding-top: 40px;
+  width: var(--main-width);
+  margin: 0 auto;
+  display: block;
+}
+
+.cmn-inner {
+  @include inner;
+}
+
+.cmn-ttl01 {
+  color: var(--white);
+  font-size: 1.8rem;
+  line-height: 1.4;
+  background: var(--main-color);
+  border-radius: 5px;
+  padding: 12px 24px 13px;
+  margin-bottom: 25px;
+}

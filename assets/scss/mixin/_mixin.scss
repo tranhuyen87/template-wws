@@ -1,0 +1,121 @@
+// font
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Noto+Sans+JP:wght@100..900&display=swap');
+
+// css custom property
+:root {
+  --main-color: #F1A817;
+  --key-color: #CD2020;
+  --sub-color: #337A96;
+  --text-color: #000;
+  --link-color: #076AFF;
+  --color-bg-g01: #f5f5f5;
+  --color-bg-y01: #FAE0AD;
+  --color-bg-y02: #FDF3DE;
+  --color-line01: #D9D9D9;
+  --color-line02: #828282;
+  --blue02: #87CEEB;
+
+  --gray01: #ccc;
+  --gray02: #575555;
+  --gray03: #E4E4E4;
+  --gray04: #777;
+  --white: #fff;
+  --black: #000;
+  --brown: #603813;
+  --brown2: #A52A2A;
+  --red: #FF0000;
+  --tomato: #FF6347;
+  --shilver: #C0C0C0;
+  --gray: #A9A9A9;
+  --darkSlateGray: #2F4F4F;
+  --navy: #000080;
+  --blue: #0000FF;
+  --aqua: #00FFFF;
+  --green: #00FF00;
+  --violet: #8A2DE2;
+  --pink: #FFC0CD;
+  --gold: #000;
+  --orenge: #A52A2A;
+  --yellow: #FFFF00;
+
+  --main-width: 1040px;
+  --pc-header-height: 100px;
+  --sp-header-height: 50px;
+
+  --font-sans-serif: "Noto Sans JP", sans-serif;
+  --font-en: "Inter", sans-serif;
+  --reg: 400;
+  --med: 500;
+  --semibold: 600;
+  --bold: 700;
+}
+
+$breakpoints: (
+  "pc": "print, screen and (min-width: 769px)",
+  "mpc": "print, screen and (max-width: 1400px) and (min-width: 769px)",
+  "spc": "print, screen and (max-width: 1020px) and (min-width: 769px)",
+  "lsp": "print, screen and (max-width: 768px)",
+  "msp": "print, screen and (max-width: 414px)",
+  "ssp": "print, screen and (max-width: 320px)"
+) !default;
+
+@mixin mq($breakpoint: lsp) {
+  @media #{map-get($breakpoints, $breakpoint)} {
+    @content;
+  }
+}
+
+@mixin hover {
+  @media (any-hover: hover) {
+		&:hover {
+			@content;
+		}
+  }
+}
+
+@mixin inner {
+  width: var(--main-width);
+  margin: 0 auto;
+  padding: 0 20px;
+  @include mq {
+    width: 100%;
+    padding: 0 10px;
+  }
+}
+
+@mixin lh($fontSize, $height) {
+  line-height: $height / $fontSize;
+}
+
+@mixin ls($tracking) {
+  letter-spacing: #{$tracking / 1000}em;
+}
+
+@mixin transition($prop: all, $dur: 0.5, $func: ease, $delay: 0) {
+  transition: $prop #{$dur}s $func #{$delay}s;
+}
+
+@mixin arrow($width, $bold, $color, $deg) {
+  border-style: solid;
+  border-width: 0 #{$bold}px #{$bold}px 0;
+  content: "";
+  display: inline-block;
+  border-color: $color;
+  @if ($deg == "left") {
+    transform: rotate(135deg);
+  } @else if ($deg == "top") {
+    transform: rotate(225deg);
+  } @else if ($deg == "right") {
+    transform: rotate(-45deg);
+  } @else if ($deg == "bottom") {
+    transform: rotate(45deg);
+  }
+  height: #{$width}px;
+  width: #{$width}px;
+}
+
+@mixin object-fit($option) {
+  width: 100%;
+  height: 100%;
+  object-fit: $option;
+}

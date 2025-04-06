@@ -1,0 +1,19 @@
+@use "../mixin" as *;
+
+.footer {
+  color: var(--white);
+  background: var(--brown);
+  text-align: center;
+  padding: 20px 0;
+  width: 100%;
+  min-width: var(--main-width);
+  position: absolute;
+  bottom: 0;
+  .copy {
+    small {
+      font-family: var(--font-en);
+      font-size: 1.6rem;
+      font-weight: var(--reg);
+    }
+  }
+}
